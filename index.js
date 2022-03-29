@@ -1,10 +1,19 @@
 const express = require(`express`);
+const connect = require("./configs/db");
 const app = express();
 app.use(express.json());
 
-const connect = require("./configs/db");
+const PORT = 8000;
 
-app.listen(8000, async (req, res) => {
+const productController = require("./controllers/product.controller");
+
+const categoryController = require("./controllers/category.controller");
+
+//route + controller
+app.use("/products", productController);
+app.use("/categories", categoryController);
+
+app.listen(PORT, async () => {
   try {
     await connect();
     console.log("Post is listening on 8000");
