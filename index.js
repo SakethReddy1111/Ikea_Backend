@@ -9,9 +9,12 @@ const productController = require("./controllers/product.controller");
 
 const categoryController = require("./controllers/category.controller");
 
+const userController = require("./controllers/user.controller");
+
 //route + controller
 app.use("/products", productController);
 app.use("/categories", categoryController);
+app.use("/user", userController);
 
 app.listen(PORT, async () => {
   try {
