@@ -12,6 +12,10 @@ const productSchema = new mongoose.Schema(
     },
     package: { type: String, required: true },
     description: { type: String, required: true },
+    img1: { type: String },
+    img2: { type: String },
+    img3: { type: String },
+    img4: { type: String },
   },
   {
     versionKey: false,
