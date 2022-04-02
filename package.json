@@ -11,12 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.0",
-=======
     "cors": "^2.8.5",
->>>>>>> 39f666dffc7cd3e3dae7f675de13ff1cb42f0afa
     "express": "^4.17.3",
     "express-validator": "^6.14.0",
     "jsonwebtoken": "^8.5.1",

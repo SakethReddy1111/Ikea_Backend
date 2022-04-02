@@ -22,7 +22,24 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const products = await Product.find().lean().exec();
+    const products = await Product.find()
+      .populate({ path: "category", select: "title" })
+      .lean()
+      .exec();
+    return res.status(201).send(products);
+  } catch (err) {
+    return res.status(500).send(err.message);
+  }
+});
+
+//category filter
+
+router.get("/:category", async (req, res) => {
+  try {
+    const products = await Product.find({ category: req.params.category })
+      .populate({ path: "category", select: "title" })
+      .lean()
+      .exec();
     return res.status(201).send(products);
   } catch (err) {
     return res.status(500).send(err.message);
@@ -32,7 +49,10 @@ router.get("/", async (req, res) => {
 //get one
 router.get("/:id", async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id).lean().exec();
+    const product = await Product.findById(req.params.id)
+      .populate({ path: "category" })
+      .lean()
+      .exec();
     return res.status(201).send(product);
   } catch (err) {
     return res.status(500).send(err.message);
