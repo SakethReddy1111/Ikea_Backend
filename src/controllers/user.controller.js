@@ -6,7 +6,7 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 
 const newToken = (item) => {
-  return jwt.sign({ item }, process.env.JWT_SECRET_KEY);
+  return jwt.sign({ item }, "ThisIsSakthReddy1111");
 };
 
 router.post(
@@ -69,6 +69,7 @@ router.delete("/delete/:id", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
+    console.log(req.body);
     const item = await User.findOne({ email: req.body.email });
 
     if (!item) {
