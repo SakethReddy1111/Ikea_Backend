@@ -6,7 +6,7 @@ app.use(express.json());
 const cors = require("cors");
 app.use(cors());
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 const productController = require("./controllers/product.controller");
 
@@ -24,7 +24,7 @@ app.use("/topsellers", topSellerController);
 app.listen(PORT, async () => {
   try {
     await connect();
-    console.log("Post is listening on 8000");
+    console.log(`port is listening on ${PORT}`);
   } catch (err) {
     console.log("err", err);
   }
