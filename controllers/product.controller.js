@@ -34,7 +34,7 @@ router.get("/", async (req, res) => {
 
 //category filter
 
-router.get("/:category", async (req, res) => {
+router.get("/category/:category", async (req, res) => {
   try {
     const products = await Product.find({ category: req.params.category })
       .populate({ path: "category", select: "title" })
