@@ -39,6 +39,7 @@ router.post(
 
       const token = newToken(item);
 
+      // console.log({ item, token });
       return res.send({ item, token });
     } catch (er) {
       return res.send(er);
